@@ -1,0 +1,121 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+
+downloads/
+eggs/
+.eggs/
+/lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+test-results/**/*
+.venv
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Vim
+*.swp
+*.swo
+
+# ctags
+tags
+
+# Rope IDE
+.ropeproject/
+
+# Front-end dependencies
+.tmp/
+assets/bundles
+.sass-cache
+.settings
+node_modules
+/static/
+assets/scripts/test/src/
+frontend_static/
+webpack-stats.json
+
+# Media dependencies
+media/
+
+# Celery
+celerybeat-schedule
+
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# SublimeText
+*.sublime-*
+
+# VSCode
+.vscode/
+
+# Project specific files
+/jackrabbit3/settings/local_dev.py
+/jackrabbit3/settings/local_test.py
+/jackrabbit3/settings/local_load.py
+
+
+# Mac OS
+.DS_Store
+
+# Temporary files
+*.dump
+*.diff
+*.dump.*
+
+# Vim
+.vimrc
+
+# Flake 8
+.flake8
+
+#local_settings
+local_dev.py
+local_test.py
+.env
