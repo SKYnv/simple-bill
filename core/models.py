@@ -10,4 +10,4 @@ class User(AbstractUser):
     email = models.EmailField()
     nickname = models.CharField(max_length=32)
     blocked = models.BooleanField(default=False)
-    note = models.TimeField(blank=True)
+    note = models.TextField(blank=True)

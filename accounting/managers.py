@@ -26,4 +26,4 @@ class BillManager(models.Manager):
         return self.get_queryset().filter(paid_at__isnull=True)
 
     def must_be_paid_today(self):
-        return self.unpaid().filter(due__day=timezone.now().day)  # TODO check
+        return self.unpaid().filter(due__day=timezone.now().day)
