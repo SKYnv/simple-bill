@@ -3,7 +3,7 @@ from django.contrib.postgres.fields.jsonb import JSONField
 from concurrency.fields import IntegerVersionField
 from simple_history.models import HistoricalRecords
 from launchlab_django_utils.models import UUIDTimestampedModel
-from djmoney.models.fields import MoneyField
+from djmoney.models.fields import MoneyField, Money
 from accounting.managers import BillManager
 
 
