@@ -4,6 +4,9 @@ from core.models import User
 from accounting.models import Bill
 from django.utils.safestring import mark_safe
 from django.template import loader
+from django.urls import re_path, reverse
+from django.utils.html import format_html
+
 
 class BillInline(admin.TabularInline):
     model = Bill
@@ -34,7 +37,7 @@ class PaidBillInline(BillInline):
 
     def mark_unpaid(self, instance):
         # TODO 'admin/unpaid_button.html' + code
-        return mark_safe('<button class="button" type="button" onclick=''>mark unpaid</button>')
+        return mark_safe('<a class="button" href={}>mark unpaid</a>'.format('http://todo'))
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)

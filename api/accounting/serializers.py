@@ -18,3 +18,8 @@ class BillSerializer(serializers.ModelSerializer):
         model = Bill
         fields = '__all__'
         read_only_fields = ('amount',)
+
+    def validate_paid_at(self, paid_at):
+        if self.instance and (self.instance.paid_at != paid_at):
+            raise serializers.ValidationError('Editing is not allowed.')
+        return paid_at
