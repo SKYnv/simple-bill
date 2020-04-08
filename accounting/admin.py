@@ -100,7 +100,13 @@ class BillAdmin(SimpleHistoryAdmin):
     def _payment_type(self, instance):
         return instance.metadata.get('type')
 
-    # TODO add validation for amount
+    def save_model(self, request, obj, form, change):
+        user = request.user
+        if float(request.POST.get('amount_0')) >= 2400:
+            obj.amount = 0
+            user.note += f'\nAttempt to set amount >= 2400 to bill: {obj}'
+            user.save()
+        super().save_model(request, obj, form, change)
 
 
 admin.site.register(Bill, BillAdmin)
