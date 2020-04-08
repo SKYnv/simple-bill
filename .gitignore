@@ -96,9 +96,7 @@ celerybeat-schedule
 .vscode/
 
 # Project specific files
-/jackrabbit3/settings/local_dev.py
-/jackrabbit3/settings/local_test.py
-/jackrabbit3/settings/local_load.py
+/simple_billing/settings/local_dev.py
 
 
 # Mac OS
