@@ -11,6 +11,8 @@ class BillMetadataAdminForm(forms.ModelForm):
     url = forms.URLField(required=False)
     _amount = forms.FloatField(required=False)
 
+    metadata = {}
+
     def __init__(self, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
@@ -34,16 +36,21 @@ class BillMetadataAdminForm(forms.ModelForm):
         fields = ('amount', 'due', 'paid_at', 'user', 'type', 'code', 'url', '_amount')
 
     def save(self, commit=True):
-        type = self.cleaned_data.pop('type')
-        code = self.cleaned_data.pop('code')
-        url = self.cleaned_data.pop('url')
-        _amount = self.cleaned_data.pop('_amount')
-        self.instance.metadata = ({'type': type, 'code': code, 'url': url, 'amount': _amount})
+        self.instance.metadata = self.metadata
         return super().save(commit=commit)
 
     def clean(self):
-        # TODO validation
-        return super().clean()
+        self.metadata = {}
+        cleaned_data = super().clean()
+        _type = cleaned_data.pop('type')
+
+        if _type == 'card':
+            self.metadata['code'] = cleaned_data.pop('code')
+            self.metadata['url'] = cleaned_data.pop('url')
+        else:
+            self.metadata['amount'] = cleaned_data.pop('_amount')
+        self.metadata['type'] = _type
+        return cleaned_data
 
 
 class PaymentTypeListFilter(admin.SimpleListFilter):
