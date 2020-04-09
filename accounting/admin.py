@@ -3,6 +3,7 @@ from simple_history.admin import SimpleHistoryAdmin
 from accounting.models import Bill
 from django.utils import timezone
 from django import forms
+from django.conf import settings
 
 
 class BillMetadataAdminForm(forms.ModelForm):
@@ -109,9 +110,9 @@ class BillAdmin(SimpleHistoryAdmin):
 
     def save_model(self, request, obj, form, change):
         user = request.user
-        if float(request.POST.get('amount_0')) >= 2400:
+        if float(request.POST.get('amount_0')) >= settings.ADD_AMOUNT_LIMIT:
             obj.amount = 0
-            user.note += f'\nAttempt to set amount >= 2400 to bill: {obj}'
+            user.note += f'\nAttempt to set amount >= {settings.ADD_AMOUNT_LIMIT} to bill: {obj}'
             user.save()
         super().save_model(request, obj, form, change)
 

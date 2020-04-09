@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'simple_history'
 ] + INTERNAL_APPS
 
 MIDDLEWARE = [
@@ -152,3 +153,5 @@ REST_FRAMEWORK = {
     },
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
+
+ADD_AMOUNT_LIMIT = 2400
