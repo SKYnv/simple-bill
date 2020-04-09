@@ -3,11 +3,3 @@ chardet==3.0.4
 coreapi==2.3.3
 coreschema==0.0.4
 django-rest-swagger==2.2.0
-django-simple-history==2.8.0
-djangorestframework==3.11.0
-launchlab-django-utils==0.9.0
-Markdown==3.2.1
-psycopg2-binary==2.8.5
-py-moneyed==0.8.0
-pytz==2019.3
-simple-history==1.1
