@@ -36,8 +36,7 @@ class PaidBillInline(BillInline):
     list_display = ('payment_type', 'mark_unpaid')
 
     def mark_unpaid(self, instance):
-        # TODO 'admin/unpaid_button.html' + code
-        return mark_safe('<a class="button" href={}>mark unpaid</a>'.format('http://todo'))
+        return loader.render_to_string('admin/unpaid_button.html', {})
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)

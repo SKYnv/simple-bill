@@ -116,4 +116,5 @@ celerybeat-schedule
 #local_settings
 local_dev.py
 local_test.py
-.env
+*.env
+simple_billing/staticfiles/
