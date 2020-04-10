@@ -10,10 +10,8 @@ class BillViewSet(viewsets.ModelViewSet):
     queryset = Bill.objects.all()
     serializer_class = BillSerializer
     authentication_classes = (SessionAuthentication, )
-    # lookup_field = 'uuid'
 
     def get_queryset(self):
-        print(self.request)
         return super().get_queryset()
 
     def destroy(self, request, *args, **kwargs):
