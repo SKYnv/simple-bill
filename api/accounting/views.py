@@ -20,5 +20,3 @@ class BillViewSet(viewsets.ModelViewSet):
             return Response(data={'paid_at': 'Deleting is not allowed when paid_at is not null.'},
                             status=HTTP_405_METHOD_NOT_ALLOWED)
         return super().destroy(request, *args, **kwargs)
-
-
